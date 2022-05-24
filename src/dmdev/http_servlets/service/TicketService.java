@@ -1,7 +1,6 @@
 package dmdev.http_servlets.service;
 
 import dmdev.http_servlets.dao.TicketDao;
-import dmdev.http_servlets.dto.FlightDto;
 import dmdev.http_servlets.dto.TicketDto;
 
 import java.util.List;

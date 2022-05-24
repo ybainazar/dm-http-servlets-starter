@@ -1,7 +1,6 @@
 package dmdev.http_servlets.util;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 public final class PropertiesUtil {
