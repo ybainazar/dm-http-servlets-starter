@@ -1,7 +1,7 @@
 package dmdev.http_servlets.entity;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
+
 
 public class Flight {
     private Long id;
