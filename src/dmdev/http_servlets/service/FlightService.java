@@ -2,11 +2,9 @@ package dmdev.http_servlets.service;
 
 import dmdev.http_servlets.dao.FlightDao;
 import dmdev.http_servlets.dto.FlightDto;
-
 import java.util.List;
-import java.util.stream.Collectors;
-
 import static java.util.stream.Collectors.toList;
+
 
 public class FlightService {
 
@@ -22,7 +20,9 @@ public class FlightService {
                 .map(flight -> FlightDto.builder()
                         .id(flight.getId())
                         .description(
-                                "%s - %s - %s".formatted(flight.getDepartureAirportCode(), flight.getArrivalAirportCode(), flight.getStatus())
+                                """
+                                %s - %s - %s
+                                """.formatted(flight.getDepartureAirportCode(), flight.getArrivalAirportCode(), flight.getStatus())
                         )
                         .build()
                 )

@@ -3,7 +3,6 @@ package dmdev.http_servlets.dto;
 import lombok.Builder;
 import lombok.Value;
 
-import java.util.Objects;
 
 @Value
 @Builder
