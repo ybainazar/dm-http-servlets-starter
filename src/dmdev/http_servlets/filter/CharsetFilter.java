@@ -7,8 +7,8 @@ import jakarta.servlet.annotation.WebInitParam;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-//@WebFilter("/*") // by URL pattern. Mostly
-@WebFilter(servletNames = {"RegistrationServlet"}, // by Servlet name
+@WebFilter( value = "/*", // by URL pattern. Mostly
+//        servletNames = {"RegistrationServlet"}, // by Servlet name
         initParams = {@WebInitParam(name = "param1", value = "paramVal")}, // init params
         dispatcherTypes = DispatcherType.REQUEST // based on dispatcher types (default = REQUEST)
         )
