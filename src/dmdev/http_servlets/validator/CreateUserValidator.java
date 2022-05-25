@@ -11,6 +11,9 @@ public class CreateUserValidator implements Validator<CreateUserDto>{
     @Override
     public ValidationResult isValid(CreateUserDto object) {
         var validationResult = new ValidationResult();
+        if (object.getName().isEmpty()) {
+            validationResult.add(Error.of("invalid.name", "Name is invalid"));
+        }
         if (!LocalDateFormatter.isValid(object.getBirthday())) {
             validationResult.add(Error.of("invalid.birthday", "Birthday is invalid"));
         }
