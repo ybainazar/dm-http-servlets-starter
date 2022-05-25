@@ -1,6 +1,7 @@
 package dmdev.http_servlets.servlet;
 
 import dmdev.http_servlets.service.TicketService;
+import dmdev.http_servlets.util.JspHelper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,21 +19,28 @@ public class TicketServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
-
         var flightId = Long.valueOf(req.getParameter("flightId"));
+        req.setAttribute("tickets", ticketService.findAllByFlightId(flightId));
 
-        try (var printWriter = resp.getWriter()) {
-            printWriter.write("<h1>Купленные билеты:</h1>");
-            printWriter.write("<ul>");
-            ticketService.findAllByFlightId(flightId).forEach(ticketDto -> printWriter.write("""
-                    <li>
-                     %s
-                    </li>
-                    """.formatted(ticketDto.getSeatNo())));
-            printWriter.write("</ul>");
-        }
+        req.getRequestDispatcher(JspHelper.getPath("tickets"))
+                .forward(req,resp);
+
+
+
+//        NOT NEEDED. USED IN JSP
+
+//        resp.setContentType("text/html");
+//        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+//        try (var printWriter = resp.getWriter()) {
+//            printWriter.write("<h1>Купленные билеты:</h1>");
+//            printWriter.write("<ul>");
+//            ticketService.findAllByFlightId(flightId).forEach(ticketDto -> printWriter.write("""
+//                    <li>
+//                     %s
+//                    </li>
+//                    """.formatted(ticketDto.getSeatNo())));
+//            printWriter.write("</ul>");
+//        }
 
     }
 }

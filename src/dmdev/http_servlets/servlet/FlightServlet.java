@@ -1,6 +1,7 @@
 package dmdev.http_servlets.servlet;
 
 import dmdev.http_servlets.service.FlightService;
+import dmdev.http_servlets.util.JspHelper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,22 +18,26 @@ public class FlightServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        req.setAttribute("flights", flightService.findAll());
+        req.getRequestDispatcher(JspHelper.getPath("flights"))
+                .forward(req, resp);
 
-        try (var printWriter = resp.getWriter()) {
-            printWriter.write("<h1>Список перелетов</h1>");
-            printWriter.write("<ul>");
-            flightService.findAll().forEach(flightDto -> {
-                printWriter.write(
-                        """
-                                <li>
-                                   <a href="/tickets?flightId=%d">%s</a>
-                                </li>
-                                """.formatted(flightDto.getId(), flightDto.getDescription())
-                );
-            });
-            printWriter.write("</ul>");
-        }
+
+//        resp.setContentType("text/html");
+//        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+//        try (var printWriter = resp.getWriter()) {
+//            printWriter.write("<h1>Список перелетов</h1>");
+//            printWriter.write("<ul>");
+//            flightService.findAll().forEach(flightDto -> {
+//                printWriter.write(
+//                        """
+//                                <li>
+//                                   <a href="/tickets?flightId=%d">%s</a>
+//                                </li>
+//                                """.formatted(flightDto.getId(), flightDto.getDescription())
+//                );
+//            });
+//            printWriter.write("</ul>");
+//        }
     }
 }
