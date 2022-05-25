@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.Optional;
 
 import static java.nio.file.StandardOpenOption.*;
 import static lombok.AccessLevel.*;
@@ -33,5 +34,13 @@ public class ImageService {
 
     public static ImageService getInstance() {
         return INSTANCE;
+    }
+
+    @SneakyThrows
+    public Optional<InputStream> get(String imagePath) {
+        var imageFullPath = Path.of(basePath, imagePath);
+        return Files.exists(imageFullPath)
+                ? Optional.of(Files.newInputStream(imageFullPath))
+                : Optional.empty();
     }
 }
