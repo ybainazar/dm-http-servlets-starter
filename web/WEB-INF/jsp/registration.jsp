@@ -5,7 +5,7 @@
     <title>Registration</title>
 </head>
 <body>
-<img src="${pageContext.request.contextPath}/images/users/pic.png" alt="User Image">
+<img height="100" width="200" src="${pageContext.request.contextPath}/images/users/pic.png" alt="User Image">
 <%--<img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg" alt="User Image">--%>
 
 <form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
