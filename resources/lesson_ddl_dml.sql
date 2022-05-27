@@ -72,6 +72,20 @@ CREATE TABLE ticket
 CREATE UNIQUE INDEX unique_flight_id_seat_no_idx ON ticket (flight_id, seat_no);
 -- flight_id + seat_no
 
+create table users
+(
+    id       serial
+        primary key,
+    name     varchar(124) not null,
+    birthday date         not null,
+    email    varchar(123) not null
+        unique,
+    image    varchar(124) not null,
+    password varchar(32)  not null,
+    role     varchar(32)  not null,
+    gender   varchar(16)  not null
+);
+
 select *
 from ticket
 where seat_no = 'B1'
