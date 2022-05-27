@@ -1,5 +1,7 @@
 package dm.http_servlets.locale;
 
+import org.postgresql.core.Encoding;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 
