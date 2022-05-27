@@ -39,5 +39,7 @@ Sample MVC application based **ONLY** on Java Core (without Spring & Hibernate f
 
 # TODO
 * Add multithreading for ConnectionManager via java.util.concurrent
+* Add database migration
+* Add testing (JUnit)
+* Pack with Gradle
 * Move to Spring Framework (Core, AOP, Security, Data JPA and Spring Boot) and Hibernate
-
