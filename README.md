@@ -1,5 +1,5 @@
 # About:
-Sample MVC application based **ONLY** on Java Core (without Spring & Hibernate frameworks)
+Sample Web-application (MVC) based **ONLY** on Java Core (without Spring & Hibernate frameworks)
 
 ### Used libraries/technologies:
 * Tomcat 10
