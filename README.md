@@ -26,6 +26,7 @@ Sample MVC application based **ONLY** on Java Core (without Spring & Hibernate f
     * Image upload/download
     * i18n/l10n for en_EN, ru_RU (translations bundle)
 * Mappers from Entity <-> DTO
+* Authorization & Authentication
 * Filters
     * CharSet
     * Authorization based on User's role
